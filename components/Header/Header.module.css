@@ -1,0 +1,31 @@
+.header {
+  padding: 24px 64px;
+}
+
+.logo {
+  margin-right: 450px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  gap: 32px;
+}
+
+.navLink {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
+}
+
+.navigationLink:hover,
+.navigationLink:focus,
+.navigationLink:active {
+  color: var(--button-hover);
+}
