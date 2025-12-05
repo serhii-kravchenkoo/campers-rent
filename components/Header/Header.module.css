@@ -24,8 +24,8 @@
   color: var(--main);
 }
 
-.navigationLink:hover,
-.navigationLink:focus,
-.navigationLink:active {
+.navLink:hover,
+.navLink:focus,
+.navLink:active {
   color: var(--button-hover);
 }
