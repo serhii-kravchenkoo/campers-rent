@@ -1,0 +1,152 @@
+.card {
+    display: flex;
+    gap: 24px;
+    border: 1px solid var(--gray-light);
+    border-radius: 20px;
+    padding: 24px;
+}
+
+/* блок з картинкою */
+.imgBox {
+    position: relative;
+    width: 292px;
+    height: 320px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+/* next/image з класом img */
+.img {
+    object-fit: cover;
+}
+
+/* права колонка */
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* верхній рядок: назва + ціна + сердечко */
+.topRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+/* назва кемпера */
+.title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 133%;
+    color: var(--main);
+}
+
+/* блок ціни + іконка обраного */
+.priceBlock {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ціна */
+.price {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 133%;
+    color: var(--main);
+}
+
+/* кнопка обраного */
+.fav,
+.favActive {
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+}
+
+/* неактивне сердечко */
+.fav {
+    color: var(--main);
+}
+
+/* активне сердечко */
+.favActive {
+    color: var(--button);
+}
+
+/* рядок: рейтинг + локація */
+.meta {
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--text);
+}
+
+/* можна підкрутити, якщо захочеш інший стиль рейтингу */
+.meta span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--main);
+}
+
+/* опис (обмежений в 1 рядок, як у тебе було) */
+.description {
+    max-width: 525px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    line-clamp: 1;
+    overflow: hidden;
+}
+
+/* теги-характеристики (transmission, engine, AC, etc.) */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tags span {
+    padding: 8px 14px;
+    border-radius: 100px;
+    background-color: var(--badges);
+    font-size: 12px;
+    color: var(--main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* низ картки з кнопкою */
+.footer {
+    margin-top: auto;
+}
+
+/* кнопка Show more */
+.btn {
+    display: inline-block;
+    border-radius: 200px;
+    padding: 16px 40px;
+
+    background-color: var(--button);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--button-hover);
+}

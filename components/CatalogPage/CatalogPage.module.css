@@ -1,0 +1,71 @@
+.page {
+    padding-top: 3rem;
+    /* py-12 => 48px */
+    padding-bottom: 3rem;
+}
+
+/* Desktop layout: sidebar left, list right */
+.layout {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    /* gap-16 => 64px */
+}
+
+/* Sidebar (filters) */
+.sidebar {
+    width: 360px;
+    /* контрольована ширина фільтрів */
+    flex-shrink: 0;
+}
+
+/* Right column */
+.listSection {
+    flex: 1;
+}
+
+/* List of cards */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Load more wrapper */
+.loadMoreWrapper {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Load more button */
+.loadMore {
+    padding: 12px 32px;
+    border-radius: 9999px;
+    border: none;
+    background-color: var(--button);
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.loadMore:hover:not(:disabled) {
+    background-color: var(--button-hover);
+}
+
+.loadMore:disabled {
+    opacity: 0.7;
+    cursor: default;
+}
+
+/* Error message */
+.error {
+    color: #ef4444;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
