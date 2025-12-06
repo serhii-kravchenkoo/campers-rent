@@ -5,6 +5,6 @@ type Props = {
 };
 
 export default async function CamperPage({ params }: Props) {
-  const { id } = await params;          // ⬅️ чекаємо Promise
+  const { id } = await params;
   return <CamperDetails id={id} />;
 }

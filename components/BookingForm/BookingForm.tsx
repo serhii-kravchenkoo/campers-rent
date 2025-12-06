@@ -1,72 +1,127 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { Formik, Form, Field, ErrorMessage, type FormikHelpers } from "formik";
+import * as Yup from "yup";
 import css from "./BookingForm.module.css";
-import toast, { Toaster } from "react-hot-toast";
 
-type Props = {
-  camperName: string;
+import toast from "react-hot-toast";
+import Calendar from "./Calendar";
+
+type BookingFormValues = {
+  name: string;
+  email: string;
+  bookingDate: string;
+  comment: string;
 };
 
-export default function BookingForm({ camperName }: Props) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [date, setDate] = useState("");
-  const [comment, setComment] = useState("");
+const initialValues: BookingFormValues = {
+  name: "",
+  email: "",
+  bookingDate: "",
+  comment: "",
+};
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
+const validationSchema = Yup.object({
+  name: Yup.string()
+    .min(2, "Name must be at least 2 characters.")
+    .max(50, "Name must be at most 50 characters.")
+    .required("Name is required."),
+  email: Yup.string()
+    .email("Please enter a valid email address.")
+    .required("Email is required."),
+  bookingDate: Yup.string().required("Booking date is required."),
+  comment: Yup.string().max(500, "Comment must be at most 500 characters."),
+});
 
-    // тут міг би бути POST на бекенд
-    toast.success("Бронювання успішно відправлено!");
+export default function BookingForm() {
+  const handleSubmit = (
+    values: BookingFormValues,
+    { resetForm }: FormikHelpers<BookingFormValues>
+  ) => {
+    console.log("Booking form:", values);
 
-    setName("");
-    setEmail("");
-    setDate("");
-    setComment("");
+    toast.success(
+      "Your booking request has been received. We will contact you soon!"
+    );
+
+    resetForm();
   };
 
   return (
-    <div className={css.card}>
-      <Toaster position="top-right" />
-      <h3>Book your campervan now</h3>
-      <p className={css.sub}>
+    <div className={css.box}>
+      <h3 className={css.boxTitle}>Book your campervan now</h3>
+      <p className={css.formSubtitle}>
         Stay connected! We are always ready to help you.
       </p>
-      <p className={css.camper}>{camperName}</p>
 
-      <form onSubmit={handleSubmit} className={css.form}>
-        <input
-          type="text"
-          placeholder="Name*"
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="Email*"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="date"
-          placeholder="Booking date*"
-          required
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-        <textarea
-          placeholder="Comment"
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-        />
+      <Formik<BookingFormValues>
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ isSubmitting, errors, touched }) => (
+          <Form className={css.form} noValidate>
+            <label className={css.field}>
+              <Field
+                type="text"
+                name="name"
+                placeholder="Name*"
+                className={`${css.input} ${
+                  errors.name && touched.name ? css.inputError : ""
+                }`}
+              />
+              <ErrorMessage
+                name="name"
+                component="span"
+                className={css.error}
+              />
+            </label>
 
-        <button type="submit" className={css.btn}>
-          Send
-        </button>
-      </form>
+            <label className={css.field}>
+              <Field
+                type="email"
+                name="email"
+                placeholder="Email*"
+                className={`${css.input} ${
+                  errors.email && touched.email ? css.inputError : ""
+                }`}
+              />
+              <ErrorMessage
+                name="email"
+                component="span"
+                className={css.error}
+              />
+            </label>
+
+            <Calendar name="bookingDate" />
+
+            <label className={css.field}>
+              <Field
+                as="textarea"
+                name="comment"
+                placeholder="Comment"
+                rows={4}
+                className={`${css.textarea} ${
+                  errors.comment && touched.comment ? css.inputError : ""
+                }`}
+              />
+              <ErrorMessage
+                name="comment"
+                component="span"
+                className={css.error}
+              />
+            </label>
+
+            <button
+              type="submit"
+              className={css.submitBtn}
+              disabled={isSubmitting}
+            >
+              Send
+            </button>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 }

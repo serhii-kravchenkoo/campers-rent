@@ -2,39 +2,48 @@
 
 import { useState } from "react";
 import css from "./CamperTabs.module.css";
-import { Camper } from "@/lib/types";
-import ReviewsComponent from "../Reviews/Reviews";
 
+import Reviews from "../Reviews/Reviews";
+import { Camper } from "@/lib/types";
 
 type Props = {
   camper: Camper;
 };
 
+type Tab = "features" | "reviews";
+
 export default function CamperTabs({ camper }: Props) {
-  const [tab, setTab] = useState<"features" | "reviews">("features");
+  const [activeTab, setActiveTab] = useState<Tab>("features");
 
   const has = (val: boolean) => val === true;
 
   return (
     <div className={css.wrapper}>
+      {/* Таби як у чужому дизайні */}
       <div className={css.tabs}>
         <button
           type="button"
-          className={tab === "features" ? css.active : css.tab}
-          onClick={() => setTab("features")}
+          className={`${css.tabBtn} ${
+            activeTab === "features" ? css.tabBtnActive : ""
+          }`}
+          onClick={() => setActiveTab("features")}
         >
           Features
         </button>
+
         <button
           type="button"
-          className={tab === "reviews" ? css.active : css.tab}
-          onClick={() => setTab("reviews")}
+          className={`${css.tabBtn} ${
+            activeTab === "reviews" ? css.tabBtnActive : ""
+          }`}
+          onClick={() => setActiveTab("reviews")}
         >
           Reviews
         </button>
       </div>
 
-      {tab === "features" && (
+      {/* Ліва частина: Features / Reviews */}
+      {activeTab === "features" ? (
         <div className={css.features}>
           <div className={css.chips}>
             <span>{camper.transmission}</span>
@@ -80,9 +89,9 @@ export default function CamperTabs({ camper }: Props) {
             </ul>
           </div>
         </div>
+      ) : (
+        <Reviews reviews={camper.reviews} />
       )}
-
-      {tab === "reviews" && <ReviewsComponent reviews={camper.reviews} />}
     </div>
   );
 }

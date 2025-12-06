@@ -95,6 +95,8 @@
 .searchBtn {
     width: 166px;
     height: 56px;
+    border: none;
+    outline: none;
     border-radius: 9999px;
     background: var(--button);
     color: white;

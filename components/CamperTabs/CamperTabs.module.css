@@ -1,0 +1,127 @@
+.wrapper {
+    width: 100%;
+}
+
+/* Лінія з табами (як у чужому CamperDetails) */
+.tabs {
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    border-bottom: 1px solid #dadde1;
+    margin-top: 40px;
+    margin-bottom: 24px;
+}
+
+/* Кнопка таба */
+.tabBtn {
+    position: relative;
+    padding: 14px 0 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    font-size: 16px;
+    line-height: 1.5;
+    color: #475467;
+}
+
+/* Лінія під табом — анімована */
+.tabBtn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 0;
+    height: 4px;
+    background-color: transparent;
+    border-radius: 999px 999px 0 0;
+    transition:
+        width 0.2s ease,
+        background-color 0.2s ease;
+}
+
+/* Активний таб */
+.tabBtnActive {
+    color: #101828;
+    font-weight: 600;
+}
+
+/* Активна лінія */
+.tabBtnActive::after {
+    width: 100%;
+    background-color: #e44848;
+    /* або var(--button), якщо в тебе так прийнято */
+}
+
+/* FEATURES блок */
+.features {
+    width: 100%;
+    background: var(--inputs);
+    border-radius: 10px;
+    padding: 24px;
+}
+
+/* Чіпси-фічі */
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 90px;
+    max-height: 104px;
+    overflow: hidden;
+}
+
+.chips span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    max-width: 143px;
+    height: 48px;
+    border-radius: 100px;
+    background: var(--badges);
+    mix-blend-mode: multiply;
+    font-size: 14px;
+    line-height: 1.4;
+    text-transform: capitalize;
+}
+
+/* DETAILS CARD */
+.detailsCard {
+    margin-top: 16px;
+}
+
+.detailsCard h3 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.detailsCard::after {
+    content: "";
+    display: block;
+    width: 100%;
+    max-width: 527px;
+    height: 1px;
+    background: var(--gray-light);
+    margin: 32px 0;
+}
+
+.detailsCard ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detailsCard li {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.detailsCard li span:first-child {
+    text-transform: capitalize;
+}

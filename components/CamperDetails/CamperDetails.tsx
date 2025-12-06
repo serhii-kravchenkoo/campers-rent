@@ -5,12 +5,11 @@ import css from "./CamperDetails.module.css";
 import { Camper } from "@/lib/types";
 
 import Loader from "@/components/Loader/Loader";
-import CamperTabs from "@/components/CamperTabs/CamperTabs";
 
 import Image from "next/image";
 import BookingForm from "../BookingForm/BookingForm";
 import { fetchCamperByIdApi } from "@/lib/api";
-
+import CamperTabs from "../CamperTabs/CamperTabs.";
 
 type Props = {
   id: string;
@@ -41,44 +40,75 @@ export default function CamperDetails({ id }: Props) {
   if (error) return <p className={css.error}>{error}</p>;
   if (!camper) return <p className={css.error}>Camper not found</p>;
 
+  const {
+    name,
+    price,
+    rating,
+    location,
+    gallery,
+    description,
+    reviews = [],
+  } = camper;
+
+  const mainImage =
+    gallery?.[0]?.original || gallery?.[0]?.thumb || "/image/hero.webp";
+
+  const reviewsCount = reviews.length;
+
   return (
     <main className={css.page}>
       <div className="container">
+        {/* HEADER */}
         <div className={css.header}>
-          <h1 className={css.title}>{camper.name}</h1>
-          <div className={css.meta}>
-            <span>⭐ {camper.rating.toFixed(1)} Reviews</span>
-            <span>📍 {camper.location}</span>
-          </div>
-          <p className={css.price}>€{camper.price.toFixed(2)}</p>
-        </div>
+          <h1 className={css.title}>{name}</h1>
 
-        <div className={css.top}>
-          <div className={css.gallery}>
-            {camper.gallery.map((item, index) => (
-              <div key={index} className={css.imageBox}>
-                <Image
-                  src={item.thumb}
-                  alt={`${camper.name} photo ${index + 1}`}
-                  fill
-                  className={css.image}
-                  sizes="(max-width: 768px) 100vw,
-                         (max-width: 1200px) 50vw,
-                         33vw"
-                />
-              </div>
-            ))}
+          <div className={css.metaRow}>
+            <span className={css.rating}>
+              <svg className={css.starIcon} aria-hidden="true">
+                {/* змінюй шлях до sprite, якщо в тебе інший */}
+                <use href="/sprite.svg#icon-rating" />
+              </svg>
+
+              <span className={css.ratingText}>
+                {rating.toFixed(1)} ({reviewsCount} reviews)
+              </span>
+            </span>
+
+            <span className={css.location}>
+              <svg className={css.locationIcon} aria-hidden="true">
+                <use href="/sprite.svg#icon-location" />
+              </svg>
+              {location}
+            </span>
           </div>
 
-          <p className={css.description}>{camper.description}</p>
+          <p className={css.price}>€{price}.00</p>
         </div>
+
+        <div className={css.gallery}>
+          {gallery?.slice(0, 3).map((img, idx) => (
+            <div key={idx} className={css.galleryItem}>
+              <Image
+                src={img.original || img.thumb || mainImage}
+                alt={`${name} photo ${idx + 1}`}
+                fill
+                sizes="(min-width: 1024px) 292px, 33vw"
+                className={css.galleryImg}
+              />
+            </div>
+          ))}
+        </div>
+
+
+        <p className={css.description}>{description}</p>
 
         <div className={css.bottom}>
           <section className={css.tabsSection}>
             <CamperTabs camper={camper} />
           </section>
+
           <aside className={css.bookingSection}>
-            <BookingForm camperName={camper.name} />
+            <BookingForm />
           </aside>
         </div>
       </div>

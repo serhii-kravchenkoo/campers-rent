@@ -1,32 +1,53 @@
-"use client";
-
 import css from "./Reviews.module.css";
-import { Review } from "@/lib/types";
 
-type Props = {
-  reviews: Review[];
+export type CamperReview = {
+  reviewer_name: string;
+  reviewer_rating: number;
+  comment: string;
 };
 
-const stars = (rating: number) =>
-  "★".repeat(Math.round(rating)) + "☆".repeat(5 - Math.round(rating));
+type Props = {
+  reviews: CamperReview[];
+};
 
-export default function ReviewsComponent({ reviews }: Props) {
-  if (!reviews.length) {
-    return <p>У цього кемпера ще немає відгуків.</p>;
+export default function Reviews({ reviews }: Props) {
+  if (!reviews?.length) {
+    return <p className={css.noReviews}>There are no reviews yet.</p>;
   }
 
   return (
-    <ul className={css.list}>
-      {reviews.map((r, index) => (
-        <li key={index} className={css.item}>
-          <div className={css.avatar}>{r.reviewer_name[0]}</div>
-          <div className={css.content}>
-            <p className={css.name}>{r.reviewer_name}</p>
-            <p className={css.stars}>{stars(r.reviewer_rating)}</p>
-            <p className={css.comment}>{r.comment}</p>
-          </div>
-        </li>
-      ))}
-    </ul>
+    <div className={css.box}>
+      <ul className={css.reviewsList}>
+        {reviews.map((rev, idx) => (
+          <li key={idx} className={css.reviewItem}>
+            <div className={css.reviewHeader}>
+              <div className={css.avatar}>
+                {rev.reviewer_name[0]?.toUpperCase()}
+              </div>
+
+              <div>
+                <p className={css.reviewerName}>{rev.reviewer_name}</p>
+
+                <div className={css.starRow}>
+                  {Array.from({ length: 5 }, (_, i) => (
+                    <svg
+                      key={i}
+                      aria-hidden="true"
+                      className={`${css.starIcon} ${
+                        i < rev.reviewer_rating ? css.starActive : ""
+                      }`}
+                    >
+                      <use href="/sprite.svg#icon-rating" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <p className={css.reviewText}>{rev.comment}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
