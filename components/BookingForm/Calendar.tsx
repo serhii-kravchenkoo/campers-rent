@@ -14,7 +14,7 @@ type BookingFormValues = {
 };
 
 type Props = {
-  name: keyof BookingFormValues; // можна й просто string, але так безпечніше
+  name: keyof BookingFormValues; //  string
 };
 
 export default function Calendar({ name }: Props) {

@@ -65,15 +65,14 @@
 
 .rightCol {
     flex: 0 0 448px;
-    /* піджени під ширину картки */
+
 }
 
-/* тільки десктопний лейаут */
+
 @media (min-width: 1024px) {
     .contentRow {
         flex-direction: row;
         align-items: flex-start;
-        /* тут .features і BookingForm вирівняні по верху */
     }
 }
 
@@ -120,15 +119,6 @@
     margin-bottom: 24px;
 }
 
-/* .detailsCard::after {
-    content: "";
-    display: block;
-    width: 100%;
-    max-width: 527px;
-    height: 1px;
-    background: var(--gray-light);
-    margin: 32px 0;
-} */
 
 .detailsCard ul {
     list-style: none;

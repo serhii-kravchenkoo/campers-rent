@@ -1,4 +1,4 @@
-// lib/store/campersStore.ts
+
 "use client";
 
 import { create } from "zustand";

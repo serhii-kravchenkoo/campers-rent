@@ -6,7 +6,7 @@
     padding: 24px;
 }
 
-/* блок з картинкою */
+
 .imgBox {
     position: relative;
     width: 292px;
@@ -16,19 +16,18 @@
     flex-shrink: 0;
 }
 
-/* next/image з класом img */
 .img {
     object-fit: cover;
 }
 
-/* права колонка */
+
 .content {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-/* верхній рядок: назва + ціна + сердечко */
+
 .topRow {
     display: flex;
     justify-content: space-between;
@@ -36,7 +35,6 @@
     gap: 16px;
 }
 
-/* назва кемпера */
 .title {
     font-weight: 600;
     font-size: 24px;
@@ -44,14 +42,14 @@
     color: var(--main);
 }
 
-/* блок ціни + іконка обраного */
+
 .priceBlock {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-/* ціна */
+
 .price {
     font-weight: 600;
     font-size: 24px;
@@ -59,7 +57,7 @@
     color: var(--main);
 }
 
-/* кнопка обраного */
+
 .fav,
 .favActive {
     border: none;
@@ -70,7 +68,7 @@
     line-height: 1;
 }
 
-/* неактивне сердечко */
+
 .fav {
     color: var(--main);
 }
@@ -80,16 +78,15 @@
     width: 24px;
     height: 24px;
     fill: currentColor;
-    /* успадковує колір від fav / favActive */
     pointer-events: none;
 }
 
-/* активне сердечко */
+
 .favActive {
     color: var(--button);
 }
 
-/* рядок: рейтинг + локація */
+
 .meta {
     display: flex;
     gap: 16px;
@@ -97,7 +94,7 @@
     color: var(--text);
 }
 
-/* можна підкрутити, якщо захочеш інший стиль рейтингу */
+
 .meta span {
     font-weight: 400;
     font-size: 16px;
@@ -105,7 +102,7 @@
     color: var(--main);
 }
 
-/* опис (обмежений в 1 рядок, як у тебе було) */
+
 .description {
     max-width: 525px;
     display: -webkit-box;
@@ -115,7 +112,7 @@
     overflow: hidden;
 }
 
-/* теги-характеристики (transmission, engine, AC, etc.) */
+
 .tags {
     display: flex;
     flex-wrap: wrap;
@@ -133,12 +130,12 @@
     gap: 8px;
 }
 
-/* низ картки з кнопкою */
+
 .footer {
     margin-top: auto;
 }
 
-/* кнопка Show more */
+
 .btn {
     display: inline-block;
     border-radius: 200px;

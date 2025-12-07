@@ -1,4 +1,4 @@
-// lib/api.ts
+
 import axios from "axios";
 import { Camper, Filters, CampersListResponse } from "./types";
 
@@ -6,7 +6,7 @@ const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
 });
 
-// формуємо query-параметри під бекенд
+
 const buildCampersParams = ( filters: Filters, page: number = 1, limit: number = 4 ) => {
   const params: Record<string, string | number | boolean> = { page, limit };
 

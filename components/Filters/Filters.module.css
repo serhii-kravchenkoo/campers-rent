@@ -52,10 +52,8 @@
     font-weight: 600;
     font-size: 20px;
     margin-bottom: 24px;
-    /* відступ вниз, якщо треба */
     position: relative;
     padding-bottom: 24px;
-    /* 🔥 відстань між текстом і рискою */
 }
 
 .subTitle::after {

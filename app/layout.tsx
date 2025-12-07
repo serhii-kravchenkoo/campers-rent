@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
+import ToasterProvider from "@/components/ToasterProvider/ToasterProvider";
 
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={`${inter.variable}`}>
         <Header />
         {children}
+        <ToasterProvider /> 
       </body>
     </html>
   );

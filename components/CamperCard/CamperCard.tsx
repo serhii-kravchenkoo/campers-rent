@@ -88,7 +88,7 @@ export default function CamperCard({ camper }: Props) {
 
 
 <div className={css.tags}>
-  {/* transmission */}
+
   <span className={css.tag}>
     <svg className={css.tagIcon}>
       <use href="/sprite.svg#icon-diagram" />
@@ -96,7 +96,7 @@ export default function CamperCard({ camper }: Props) {
     {camper.transmission}
   </span>
 
-{/* engine */}
+
 <span className={css.tag}>
   <svg className={css.tagIcon}>
     <use href="/sprite.svg#icon-fuel-pump" />
@@ -104,7 +104,7 @@ export default function CamperCard({ camper }: Props) {
   {camper.engine}
 </span>
 
-  {/* kitchen */}
+ 
   {camper.kitchen && (
     <span className={css.tag}>
       <svg className={css.tagIcon}>
@@ -114,7 +114,7 @@ export default function CamperCard({ camper }: Props) {
     </span>
   )}
 
-  {/* AC */}
+
   {camper.AC && (
     <span className={css.tag}>
       <svg className={css.tagIcon}>
@@ -124,7 +124,7 @@ export default function CamperCard({ camper }: Props) {
     </span>
   )}
 
-  {/* bathroom */}
+
   {camper.bathroom && (
     <span className={css.tag}>
       <svg className={css.tagIcon}>
@@ -134,13 +134,6 @@ export default function CamperCard({ camper }: Props) {
     </span>
   )}
 </div>
-
-        
-
-
-
-
-
 
 
 

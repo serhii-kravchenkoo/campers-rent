@@ -48,7 +48,7 @@ export default function CamperTabs({ camper }: Props) {
           {activeTab === "features" ? (
             <div className={css.features}>
 <div className={css.chips}>
-  {/* Transmission */}
+
   <span>
     <svg className={css.chipIcon} aria-hidden="true">
       <use href="/sprite.svg#icon-diagram" />
@@ -56,7 +56,7 @@ export default function CamperTabs({ camper }: Props) {
     {camper.transmission}
   </span>
 
-  {/* Engine */}
+
   <span>
     <svg className={css.chipIcon} aria-hidden="true">
       <use href="/sprite.svg#icon-fuel-pump" />
@@ -64,7 +64,7 @@ export default function CamperTabs({ camper }: Props) {
     {camper.engine}
   </span>
 
-  {/* AC */}
+
   {has(camper.AC) && (
     <span>
       <svg className={css.chipIcon} aria-hidden="true">
@@ -74,7 +74,7 @@ export default function CamperTabs({ camper }: Props) {
     </span>
   )}
 
-  {/* Kitchen */}
+
   {has(camper.kitchen) && (
     <span>
       <svg className={css.chipIcon} aria-hidden="true">
@@ -84,7 +84,7 @@ export default function CamperTabs({ camper }: Props) {
     </span>
   )}
 
-  {/* Bathroom */}
+
   {has(camper.bathroom) && (
     <span>
       <svg className={css.chipIcon} aria-hidden="true">
@@ -94,7 +94,7 @@ export default function CamperTabs({ camper }: Props) {
     </span>
   )}
 
-  {/* TV */}
+
   {camper.TV && (
     <span>
       <svg className={css.chipIcon} aria-hidden="true">
@@ -104,7 +104,7 @@ export default function CamperTabs({ camper }: Props) {
     </span>
   )}
 
-  {/* Radio */}
+
   {camper.radio && (
     <span>
       <svg className={css.chipIcon} aria-hidden="true">

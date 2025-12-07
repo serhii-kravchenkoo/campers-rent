@@ -24,6 +24,17 @@ export default function Header() {
               </Link>
             </li>
           </ul>
+
+          {/* <Link href="/favorites" className={css.fav}>
+            <svg className={css.favIcon} aria-hidden="true">
+                  <use href="/sprite.svg#icon-heart" />
+            </svg>
+          </Link> */}
+
+
+
+
+
         </div>
       </div>
     </header>

@@ -1,4 +1,3 @@
-// components/Filters/Filters.tsx
 
 "use client";
 
@@ -50,20 +49,11 @@ const getEquipmentIconId = (value: string): string | null => {
     case "gas":
       return "icon-gas";
     case "water":
-      return "icon-wind"; // або іншу, якщо захочеш
+      return "icon-wind"; 
     default:
       return null;
   }
 };
-
-
-
-
-
-
-
-
-
 
 
 
@@ -108,7 +98,7 @@ export default function FiltersComponent() {
     }));
   };
 
-  // 👇 "Automatic" живе в transmission, але показується в Vehicle equipment
+
   const toggleAutomatic = () => {
     setLocalFilters((prev) => ({
       ...prev,
@@ -119,7 +109,7 @@ export default function FiltersComponent() {
 
   return (
     <form className={css.filters} onSubmit={handleSubmit}>
-      {/* Location */}
+
 
 
 <div className={css.block}>
@@ -128,7 +118,6 @@ export default function FiltersComponent() {
   <div className={css.inputWrapper}>
     <svg className={css.inputIcon} aria-hidden="true">
       <use href="/sprite.svg#icon-location" />
-      {/* або xlinkHref="#icon-location" якщо у тебе ще старий синтаксис */}
     </svg>
 
     <input
@@ -146,11 +135,11 @@ export default function FiltersComponent() {
       
 
 
-      {/* Filters */}
+
       <div className={css.block}>
         <p className={css.sectionTitle}>Filters</p>
 
-        {/* Vehicle equipment */}
+
         <p className={css.subTitle}>Vehicle equipment</p>
 
         
@@ -183,7 +172,6 @@ export default function FiltersComponent() {
     );
   })}
 
-  {/* Automatic з іконкою */}
   <button
     type="button"
     className={
@@ -238,11 +226,6 @@ export default function FiltersComponent() {
   })}
 </div>
 
-
-
-
-
-        
       </div>
 
       <button type="submit" className={css.searchBtn}>

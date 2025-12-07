@@ -1,26 +1,24 @@
-// lib/types.ts
 
-// Один елемент у gallery
 export type GalleryItem = {
   thumb: string;
   original: string;
 };
 
-// Відгук з бекенду
+
 export type Review = {
   reviewer_name: string;
   reviewer_rating: number;
   comment: string;
 };
 
-// Можливі значення форми кузова
+
 export type CamperForm = "alcove" | "fullyIntegrated" | "panelTruck";
 
 export type TransmissionFilter = "automatic" | "manual" | null;
 
 export type EquipmentFilter = | "AC" | "bathroom" | "kitchen" | "TV";
 
-// Camper з бекенду
+
 export type Camper = {
   id: string;
   name: string;
@@ -53,13 +51,13 @@ export type Camper = {
   reviews: Review[];
 };
 
-// Відповідь списку з бекенду
+
 export type CampersListResponse = {
   total: number;
   items: Camper[];
 };
 
-// Фільтри для фронта
+
 export type Filters = {
   location: string;
   form: CamperForm | null;

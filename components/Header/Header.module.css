@@ -30,3 +30,30 @@
 .navLink:active {
   color: var(--button-hover);
 }
+
+
+
+
+
+
+/* 
+
+.fav {
+  margin-left: auto;
+  color: var(--main);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.favIcon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.fav:hover {
+  color: var(--button);
+} */
