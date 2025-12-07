@@ -8,8 +8,8 @@ export default function Header() {
       <div className="container">
         <div className={css.navigation}>
           <Link href="/" className={css.logo}>
-            <svg width={136} height={16}>
-              <use href="/icons.svg#icon-Logo"></use>
+            <svg width={136} height={16} aria-hidden="true">
+              <use href="/sprite.svg#icon-Logo" />
             </svg>
           </Link>
           <ul className={css.navList}>
