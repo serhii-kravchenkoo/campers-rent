@@ -47,19 +47,113 @@ export default function CamperTabs({ camper }: Props) {
         <div className={css.leftCol}>
           {activeTab === "features" ? (
             <div className={css.features}>
-              <div className={css.chips}>
-                <span>{camper.transmission}</span>
-                <span>{camper.engine}</span>
-                {has(camper.AC) && <span>AC</span>}
-                {has(camper.kitchen) && <span>Kitchen</span>}
-                {has(camper.bathroom) && <span>Bathroom</span>}
-                {camper.TV && <span>TV</span>}
-                {camper.radio && <span>Radio</span>}
-                {camper.refrigerator && <span>Refrigerator</span>}
-                {camper.microwave && <span>Microwave</span>}
-                {camper.gas && <span>Gas</span>}
-                {camper.water && <span>Water</span>}
-              </div>
+<div className={css.chips}>
+  {/* Transmission */}
+  <span>
+    <svg className={css.chipIcon} aria-hidden="true">
+      <use href="/sprite.svg#icon-diagram" />
+    </svg>
+    {camper.transmission}
+  </span>
+
+  {/* Engine */}
+  <span>
+    <svg className={css.chipIcon} aria-hidden="true">
+      <use href="/sprite.svg#icon-fuel-pump" />
+    </svg>
+    {camper.engine}
+  </span>
+
+  {/* AC */}
+  {has(camper.AC) && (
+    <span>
+      <svg className={css.chipIcon} aria-hidden="true">
+        <use href="/sprite.svg#icon-wind" />
+      </svg>
+      AC
+    </span>
+  )}
+
+  {/* Kitchen */}
+  {has(camper.kitchen) && (
+    <span>
+      <svg className={css.chipIcon} aria-hidden="true">
+        <use href="/sprite.svg#icon-kitchen" />
+      </svg>
+      Kitchen
+    </span>
+  )}
+
+  {/* Bathroom */}
+  {has(camper.bathroom) && (
+    <span>
+      <svg className={css.chipIcon} aria-hidden="true">
+        <use href="/sprite.svg#icon-shower" />
+      </svg>
+      Bathroom
+    </span>
+  )}
+
+  {/* TV */}
+  {camper.TV && (
+    <span>
+      <svg className={css.chipIcon} aria-hidden="true">
+        <use href="/sprite.svg#icon-tv" />
+      </svg>
+      TV
+    </span>
+  )}
+
+  {/* Radio */}
+  {camper.radio && (
+    <span>
+      <svg className={css.chipIcon} aria-hidden="true">
+        <use href="/sprite.svg#icon-radio" />
+      </svg>
+      Radio
+    </span>
+  )}
+
+
+  {camper.refrigerator && (
+    <span>
+      <svg className={css.chipIcon} aria-hidden="true">
+        <use href="/sprite.svg#icon-fridge" />
+      </svg>
+      Refrigerator
+    </span>
+  )}
+
+
+  {camper.microwave && (
+    <span>
+      <svg className={css.chipIcon} aria-hidden="true">
+        <use href="/sprite.svg#icon-microwave" />
+      </svg>
+      Microwave
+    </span>
+  )}
+
+
+  {camper.gas && (
+    <span>
+      <svg className={css.chipIcon} aria-hidden="true">
+        <use href="/sprite.svg#icon-gas" />
+      </svg>
+      Gas
+    </span>
+  )}
+
+
+  {camper.water && (
+    <span>
+      <svg className={css.chipIcon} aria-hidden="true">
+        <use href="/sprite.svg#icon-wind" />
+      </svg>
+      Water
+    </span>
+  )}
+</div>
 
               <div className={css.detailsCard}>
                 <h3>Vehicle details</h3>

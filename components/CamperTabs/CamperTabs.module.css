@@ -14,18 +14,21 @@
 
 
 .tabBtn {
+    font-family: "Inter", sans-serif;
     position: relative;
     padding: 14px 0 10px;
     border: none;
     background: transparent;
     cursor: pointer;
 
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: 600;
     line-height: 1.5;
-    color: #475467;
+    color: #101828;
 }
 
 .tabBtn::after {
+
     content: "";
     position: absolute;
     left: 0;
@@ -79,7 +82,7 @@
     width: 100%;
     background: var(--inputs);
     border-radius: 10px;
-    padding: 24px;
+    padding: 44px 52px;
 }
 
 .chips {
@@ -114,9 +117,10 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 1.2;
+    margin-bottom: 24px;
 }
 
-.detailsCard::after {
+/* .detailsCard::after {
     content: "";
     display: block;
     width: 100%;
@@ -124,12 +128,13 @@
     height: 1px;
     background: var(--gray-light);
     margin: 32px 0;
-}
+} */
 
 .detailsCard ul {
     list-style: none;
-    padding: 0;
+    padding: 24px 0 0;
     margin: 0;
+    border-top: 1px solid var(--gray-light);
 }
 
 .detailsCard li {
@@ -143,4 +148,20 @@
 
 .detailsCard li span:first-child {
     text-transform: capitalize;
+}
+
+
+
+
+
+.chipIcon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    fill: currentColor;
+}
+
+.chips span {
+    display: inline-flex;
+    align-items: center;
 }
