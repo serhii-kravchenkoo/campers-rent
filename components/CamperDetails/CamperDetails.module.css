@@ -1,10 +1,17 @@
+.page {
+    padding-bottom: 80px;
+}
+
+.header {
+    margin-top: 48px;
+}
+
 .title {
     font-weight: 600;
     font-size: 24px;
     line-height: 133%;
     color: var(--main);
     margin-bottom: 8px;
-    margin-top: 48px;
 }
 
 .metaRow {
@@ -67,7 +74,6 @@
 .gallery {
     display: flex;
     gap: 48px;
-
     margin-bottom: 28px;
 }
 
@@ -84,7 +90,6 @@
 .galleryImg {
     object-fit: cover;
     object-position: center;
-
     width: 100% !important;
     height: 100% !important;
 }
@@ -97,51 +102,8 @@
     margin-bottom: 60px;
 }
 
-.tabs {
-    display: flex;
-    gap: 40px;
-    border-bottom: 1px solid #dadde1;
+.error {
     margin-top: 40px;
-    margin-bottom: 24px;
-}
-
-.tabBtn {
-    position: relative;
-    padding: 14px 0 10px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-
+    color: #e44848;
     font-size: 16px;
-    line-height: 1.5;
-    color: #475467;
-}
-
-.tabBtn::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    width: 0;
-    height: 4px;
-    background-color: transparent;
-    border-radius: 999px 999px 0 0;
-    transition:
-        width 0.2s ease,
-        background-color 0.2s ease;
-}
-
-.tabBtnActive {
-    color: #101828;
-    font-weight: 600;
-}
-
-.tabBtnActive::after {
-    width: 100%;
-    background-color: #e44848;
-}
-
-.contentRow {
-    display: flex;
-    gap: 40px;
 }

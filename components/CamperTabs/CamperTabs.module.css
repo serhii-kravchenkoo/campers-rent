@@ -2,7 +2,7 @@
     width: 100%;
 }
 
-/* Лінія з табами (як у чужому CamperDetails) */
+
 .tabs {
     width: 100%;
     display: flex;
@@ -12,7 +12,7 @@
     margin-bottom: 24px;
 }
 
-/* Кнопка таба */
+
 .tabBtn {
     position: relative;
     padding: 14px 0 10px;
@@ -25,7 +25,6 @@
     color: #475467;
 }
 
-/* Лінія під табом — анімована */
 .tabBtn::after {
     content: "";
     position: absolute;
@@ -40,20 +39,42 @@
         background-color 0.2s ease;
 }
 
-/* Активний таб */
 .tabBtnActive {
     color: #101828;
     font-weight: 600;
 }
 
-/* Активна лінія */
 .tabBtnActive::after {
     width: 100%;
     background-color: #e44848;
-    /* або var(--button), якщо в тебе так прийнято */
 }
 
-/* FEATURES блок */
+
+.contentRow {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.leftCol {
+    flex: 1 1 auto;
+}
+
+.rightCol {
+    flex: 0 0 448px;
+    /* піджени під ширину картки */
+}
+
+/* тільки десктопний лейаут */
+@media (min-width: 1024px) {
+    .contentRow {
+        flex-direction: row;
+        align-items: flex-start;
+        /* тут .features і BookingForm вирівняні по верху */
+    }
+}
+
+
 .features {
     width: 100%;
     background: var(--inputs);
@@ -61,7 +82,6 @@
     padding: 24px;
 }
 
-/* Чіпси-фічі */
 .chips {
     display: flex;
     flex-wrap: wrap;
@@ -86,7 +106,6 @@
     text-transform: capitalize;
 }
 
-/* DETAILS CARD */
 .detailsCard {
     margin-top: 16px;
 }

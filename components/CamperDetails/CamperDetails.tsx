@@ -5,11 +5,10 @@ import css from "./CamperDetails.module.css";
 import { Camper } from "@/lib/types";
 
 import Loader from "@/components/Loader/Loader";
-
 import Image from "next/image";
-import BookingForm from "../BookingForm/BookingForm";
 import { fetchCamperByIdApi } from "@/lib/api";
 import CamperTabs from "../CamperTabs/CamperTabs.";
+
 
 type Props = {
   id: string;
@@ -58,14 +57,13 @@ export default function CamperDetails({ id }: Props) {
   return (
     <main className={css.page}>
       <div className="container">
-        {/* HEADER */}
+
         <div className={css.header}>
           <h1 className={css.title}>{name}</h1>
 
           <div className={css.metaRow}>
             <span className={css.rating}>
               <svg className={css.starIcon} aria-hidden="true">
-                {/* змінюй шлях до sprite, якщо в тебе інший */}
                 <use href="/sprite.svg#icon-rating" />
               </svg>
 
@@ -85,6 +83,7 @@ export default function CamperDetails({ id }: Props) {
           <p className={css.price}>€{price}.00</p>
         </div>
 
+
         <div className={css.gallery}>
           {gallery?.slice(0, 3).map((img, idx) => (
             <div key={idx} className={css.galleryItem}>
@@ -100,17 +99,10 @@ export default function CamperDetails({ id }: Props) {
         </div>
 
 
-        <p className={css.description}>{description}</p>
+        <p className={css.descriptionTop}>{description}</p>
 
-        <div className={css.bottom}>
-          <section className={css.tabsSection}>
-            <CamperTabs camper={camper} />
-          </section>
 
-          <aside className={css.bookingSection}>
-            <BookingForm />
-          </aside>
-        </div>
+        <CamperTabs camper={camper} />
       </div>
     </main>
   );
