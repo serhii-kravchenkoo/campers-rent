@@ -41,31 +41,108 @@ export default function CamperCard({ camper }: Props) {
           <div className={css.priceBlock}>
             <span className={css.price}>€{formatPrice(camper.price)}</span>
 
-            <button
-              type="button"
-              className={isFav ? css.favActive : css.fav}
-              onClick={() => toggleFavorite(camper.id)}
-              aria-label="Add to favourites"
-            >
-              ♥
-            </button>
+            
+
+<button
+  type="button"
+  className={isFav ? css.favActive : css.fav}
+  onClick={() => toggleFavorite(camper.id)}
+  aria-label="Add to favourites"
+>
+  <svg className={css.favIcon} aria-hidden="true">
+    <use href="/sprite.svg#icon-heart" />
+  </svg>
+</button>
+
+
+
+
           </div>
         </div>
 
-        <div className={css.meta}>
-          <span>⭐ {camper.rating.toFixed(1)} Reviews</span>
-          <span>📍 {camper.location}</span>
-        </div>
+<div className={css.meta}>
+  <span className={css.rating}>
+    <svg className={css.starIcon} aria-hidden="true">
+      <use href="/sprite.svg#icon-rating" />
+    </svg>
+
+    <span className={css.ratingText}>
+      {camper.rating.toFixed(1)} ({camper.reviews.length} Reviews)
+    </span>
+  </span>
+
+  <span className={css.location}>
+    <svg className={css.locationIcon} aria-hidden="true">
+      <use href="/sprite.svg#icon-location" />
+    </svg>
+    {camper.location}
+  </span>
+</div>
 
         <p className={css.description}>{camper.description}</p>
 
-        <div className={css.tags}>
-          <span>{camper.transmission}</span>
-          <span>{camper.engine}</span>
-          {camper.kitchen && <span>Kitchen</span>}
-          {camper.AC && <span>AC</span>}
-          {camper.bathroom && <span>Bathroom</span>}
-        </div>
+        
+
+
+
+
+
+<div className={css.tags}>
+  {/* transmission */}
+  <span className={css.tag}>
+    <svg className={css.tagIcon}>
+      <use href="/sprite.svg#icon-diagram" />
+    </svg>
+    {camper.transmission}
+  </span>
+
+{/* engine */}
+<span className={css.tag}>
+  <svg className={css.tagIcon}>
+    <use href="/sprite.svg#icon-fuel-pump" />
+  </svg>
+  {camper.engine}
+</span>
+
+  {/* kitchen */}
+  {camper.kitchen && (
+    <span className={css.tag}>
+      <svg className={css.tagIcon}>
+        <use href="/sprite.svg#icon-kitchen" />
+      </svg>
+      Kitchen
+    </span>
+  )}
+
+  {/* AC */}
+  {camper.AC && (
+    <span className={css.tag}>
+      <svg className={css.tagIcon}>
+        <use href="/sprite.svg#icon-wind" />
+      </svg>
+      AC
+    </span>
+  )}
+
+  {/* bathroom */}
+  {camper.bathroom && (
+    <span className={css.tag}>
+      <svg className={css.tagIcon}>
+        <use href="/sprite.svg#icon-shower" />
+      </svg>
+      Bathroom
+    </span>
+  )}
+</div>
+
+        
+
+
+
+
+
+
+
 
         <div className={css.footer}>
           <Link href={`/catalog/${camper.id}`} className={css.btn}>
