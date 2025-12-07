@@ -5,7 +5,7 @@
     gap: 32px;
 }
 
-/* -------- Header block -------- */
+
 
 .block {
     display: flex;
@@ -32,29 +32,50 @@
 }
 
 .input::placeholder {
-    color: #9ca3af;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #101828;
+    line-height: 1.5
 }
 
-/* -------- Text titles -------- */
 
 .sectionTitle {
     font-weight: 500;
     font-size: 16px;
     color: var(--text);
     margin-bottom: 24px;
+
 }
 
 .subTitle {
     font-weight: 600;
     font-size: 20px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
+    /* відступ вниз, якщо треба */
+    position: relative;
+    padding-bottom: 24px;
+    /* 🔥 відстань між текстом і рискою */
 }
+
+.subTitle::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--gray-light);
+}
+
 
 .grid {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 24px;
+
+
 }
 
 .gridSmall {
@@ -64,7 +85,6 @@
     margin-bottom: 24px;
 }
 
-/* -------- Chips (buttons) -------- */
 
 .chip {
     border: 1px solid var(--gray-light);
@@ -90,7 +110,6 @@
     border-color: var(--button);
 }
 
-/* -------- Search button -------- */
 
 .searchBtn {
     width: 166px;
@@ -107,4 +126,87 @@
 
 .searchBtn:hover {
     background: var(--button-hover);
+}
+
+
+.chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    height: 80px;
+    border-radius: 12px;
+}
+
+.chipIcon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+
+
+
+
+
+
+
+
+
+.inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    width: 100%;
+    padding-left: 40px;
+    /* місце під іконку */
+}
+
+.inputIcon {
+    position: absolute;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    fill: #101828;
+    /* або var(--text) */
+    pointer-events: none;
+}
+
+
+
+
+.chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 12px;
+    width: 112px;
+    height: 96px;
+}
+
+.chipIcon {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+}
+
+.chipLabel {
+    font-size: 14px;
+    line-height: 1;
+}
+
+
+
+
+.icon32 {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    fill: currentColor;
 }
